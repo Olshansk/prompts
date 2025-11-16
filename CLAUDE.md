@@ -94,9 +94,28 @@ swiftlint --fix
 
 ## General Guidelines in code
 
-- Be concise yet clear—don’t sacrifice context.
+- Be concise yet clear—don't sacrifice context.
 - Trim comment noise while preserving meaning.
 - Follow best practices for the language in use.
 - Break long paragraphs (>3 sentences) or run-on sentences into bullet points.
 - Start new sentences on new lines when they stand alone.
-- Never remove any content from the original inp ut.
+- Never remove any content from the original input.
+
+## TODO Comment Standards
+
+Use specific TODO prefixes to categorize action items:
+
+- `TODO:` - General improvements or future work (default)
+- `TODO_IMPROVE:` - Code quality improvements, refactoring opportunities
+- `TODO_IN_THIS_PR:` - Tasks to complete within the current pull request
+- `FIXME:` - Known bugs or issues that need fixing
+- `HACK:` - Temporary workarounds that should be replaced
+- `NOTE:` - Important explanations or warnings for developers
+
+Example:
+```python
+# TODO_IMPROVE: Implement connection pooling for better performance
+# TODO_IN_THIS_PR: Add input validation
+# FIXME: Race condition when multiple requests arrive simultaneously
+# HACK: Hardcoded timeout until we implement configurable settings
+```
