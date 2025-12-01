@@ -1,0 +1,114 @@
+# --- Defaults (minimal) ---
+# Keep defaults light; choose behavior via profiles below.
+file_opener = "vscode"
+history = { persistence = "save-all" }
+model = "gpt-5.1-codex-max"
+
+# Trust your local worktrees (avoids extra prompts in these dirs)
+[projects]
+"/Users/olshansky/workspace" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/usdc-experiment" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/extension_bisect" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/grove/path_dashboard" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/pocket/poktroll" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/x_swipe/landing_page" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/x_swipe" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/grove/path" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/pocket/shannon-sdk" = { trust_level = "trusted" }
+"/Users/olshansky/workspace/pocket/poktroll3" = { trust_level = "trusted" }
+
+[projects."/Users/olshansky/workspace/olshansk.github.io"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/infrastructure"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/pocket/poktroll2"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/pocket/poktroll4"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/infrastructure2"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/breakingground/breakingground_landingpage"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/breakingground/ttc"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/Documents/GetSoils"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/flight_record"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/pivot/grove_extension"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/pivot/grove_api"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/travel_history_us"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/logo_creator"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/pivot/grove_api2"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/pivot/grove-app"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/breakingground/image_analysis"]
+trust_level = "trusted"
+
+# Conservative environment handoff to tools/commands
+[shell_environment_policy]
+inherit = "core"                       # HOME, PATH, USER, etc.
+ignore_default_excludes = false        # still drop *KEY*/*TOKEN*/SECRET
+exclude = ["AWS_*", "AZURE_*", "GCP_*"]
+include_only = []                      # allow normal core vars
+set = { CI = "0" }
+
+# --- Profiles ---
+# Make the "dev" profile the default so docs builds don't prompt for network.
+profile = "dev"
+
+[profiles.dev]
+# Let Codex run normally without constant approvals inside trusted projects.
+approval_policy = "on-request"
+# Writable workspace, but still sandboxed; enable network so Docker/yarn don't prompt.
+sandbox_mode = "workspace-write"
+[profiles.dev.sandbox_workspace_write]
+network_access = true
+exclude_tmpdir_env_var = false
+exclude_slash_tmp = false
+
+# Optional: tone down verbosity/noise from reasoning summaries
+model_reasoning_summary = "concise"
+
+# Allowlist to avoid global full access
+writable_roots = [
+  "/var/run/docker.sock",                       # Docker daemon socket
+  "/Users/olshansky/.docker",                   # Docker config/creds helpers
+  "/Users/olshansky/.ignite",                   # Ignite plugins/cache
+  "/Users/olshansky/Library/Caches/ignite",     # (macOS) Ignite cache (if used)
+  "/Users/olshansky/Library/Application Support/ignite" # (macOS) Ignite data (if used)
+]
+
+# Helpful TUI notifications only (no external scripts)
+[tui]
+notifications = ["approval-requested", "agent-turn-complete"]
+
+[notice]
+hide_gpt5_1_migration_prompt = true
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+# A stricter profile you can switch to when you want maximum safety.
+[profiles.read_only]
+approval_policy = "untrusted"
+sandbox_mode = "read-only"
+model_reasoning_summary = "concise"

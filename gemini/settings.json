@@ -1,0 +1,19 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Atom One"
+  },
+  "general": {
+    "previewFeatures": true,
+    "disableAutoUpdate": false,
+    "debugKeystrokeLogging": false,
+    "enablePromptCompletion": true
+  },
+  "output": {
+    "format": "text"
+  }
+}

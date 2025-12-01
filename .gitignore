@@ -1,0 +1,24 @@
+# Codex
+codex/auth.json
+codex/history.jsonl
+codex/log/
+codex/sessions/
+codex/version.json
+
+# Gemini - Auth/Sensitive
+gemini/oauth_creds.json
+gemini/google_accounts.json
+gemini/google_account_id
+gemini/user_id
+gemini/installation_id
+gemini/antigravity/installation_id
+
+# Gemini - Ephemeral/State
+gemini/state.json
+gemini/settings.json.orig
+gemini/antigravity/conversations/
+gemini/antigravity/brain/
+gemini/antigravity/user_settings.pb
+gemini/antigravity/implicit/
+gemini/antigravity/code_tracker/active/
+gemini/tmp/
