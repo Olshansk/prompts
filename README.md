@@ -1,48 +1,75 @@
 # Prompts <!-- omit in toc -->
 
-If you're reading this, it's like you came here from my post on [My Claude Code Agent for Writing Prompts](https://olshansky.info/posts/2025-09-29-prompt-writer-agent).
+Centralized repository for LLM prompts across Claude, Gemini, and Codex.
 
-I'll be using this repo to centralize all my prompts across various Desktop Apps IDEs, CLIs and other tools.
-
-Leave a :star: to follow along :)
-
+- [Structure](#structure)
 - [Setup](#setup)
+- [Syncing](#syncing)
 - [What's Included](#whats-included)
+
+## Structure
+
+```
+prompts/
+├── Makefile        # Sync commands
+├── README.md
+├── claude/         # Claude Code configs
+│   ├── agents/
+│   ├── commands/
+│   └── CLAUDE.md
+├── gemini/         # Gemini configs
+└── codex/          # Codex configs
+```
+
+<!-- TODO: Add shared/ directory for prompts that work across all tools -->
 
 ## Setup
 
-**Source of Truth:** Your `~/.claude` directory contains the actual files you use with Claude Code. This repo is a public mirror of those configs.
-
-To use these configs:
+Clone and copy configs to your local tool directories:
 
 ```bash
-# Clone the repo
+# Clone
 git clone https://github.com/olshansky/prompts.git ~/workspace/prompts
 
-# Copy items you want to your ~/.claude directory
-cp -r ~/workspace/prompts/agents ~/.claude/
-cp -r ~/workspace/prompts/commands ~/.claude/
-cp ~/workspace/prompts/CLAUDE.md ~/.claude/
+# Copy Claude configs
+cp -r ~/workspace/prompts/claude/* ~/.claude/
+
+# Copy Gemini configs
+cp -r ~/workspace/prompts/gemini/* ~/.gemini/
+
+# Copy Codex configs
+cp -r ~/workspace/prompts/codex/* ~/.codex/
 ```
 
-### Syncing Your Own Configs
+## Syncing
 
-If you're maintaining your own fork and want to sync changes from `~/.claude` to your repo:
+This repo mirrors your local configs. Source of truth is your local `~/.<tool>/` directories.
 
 ```bash
-# From the repo directory
-./sync-from-claude.sh
+# Sync all tools
+make sync-all
 
-# Then commit and push
-git add -A
-git commit -m "Update configs"
-git push
+# Or sync individually
+make sync-claude
+make sync-gemini
+make sync-codex
+
+# Check status
+make status
+
+# Then commit
+git add -A && git commit -m "Update configs" && git push
 ```
-
-The `sync-from-claude.sh` script copies public configs from `~/.claude` to this repo.
 
 ## What's Included
 
+**Claude** (`claude/`)
 - `agents/` - Custom Claude Code agents
 - `commands/` - Slash commands
-- `CLAUDE.md` - Global instructions for Claude Code
+- `CLAUDE.md` - Global instructions
+
+**Gemini** (`gemini/`)
+- TBD
+
+**Codex** (`codex/`)
+- TBD
