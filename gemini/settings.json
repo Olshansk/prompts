@@ -4,6 +4,10 @@
       "selectedType": "oauth-personal"
     }
   },
+  "safety": {
+    "auto_approve_readonly": true,
+    "always_allow": ["ls", "grep", "cat", "pwd", "find", "git status", "make"]
+  },
   "ui": {
     "theme": "Atom One"
   },
