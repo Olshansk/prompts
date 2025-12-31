@@ -2,7 +2,7 @@
 # Keep defaults light; choose behavior via profiles below.
 file_opener = "vscode"
 history = { persistence = "save-all" }
-model = "gpt-5.1-codex-max"
+model = "gpt-5.2-codex"
 
 # Trust your local worktrees (avoids extra prompts in these dirs)
 [projects]
@@ -65,6 +65,27 @@ trust_level = "trusted"
 [projects."/Users/olshansky/workspace/breakingground/image_analysis"]
 trust_level = "trusted"
 
+[projects."/Users/olshansky/workspace/grove/pivot/grove_api3"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/grove_api"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/grove_api4"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/grove_api2"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/grove_api3"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/grove/grove_extension"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/.codex"]
+trust_level = "trusted"
+
 # Conservative environment handoff to tools/commands
 [shell_environment_policy]
 inherit = "core"                       # HOME, PATH, USER, etc.
@@ -106,6 +127,14 @@ notifications = ["approval-requested", "agent-turn-complete"]
 [notice]
 hide_gpt5_1_migration_prompt = true
 "hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+"gpt-5.2" = "gpt-5.2-codex"
+
+[features]
+unified_exec = true
+shell_snapshot = true
 
 # A stricter profile you can switch to when you want maximum safety.
 [profiles.read_only]

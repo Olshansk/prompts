@@ -22,7 +22,10 @@ If this command is being invoked, there are unresolved merge conflicts you need 
 
 ## 2. Build context
 
-1. Run `git diff main` to understand the changes in this branch relative to `main`.
+1. Do a git diff
+   - If a `testnet` branch is available, do a `git diff testnet` and move on to step 2.
+   - If a `staging` branch is available, do a `git diff staging` and move on to step 2.
+   - If it is not, do a `git diff main` and move on to step 2.
 2. Run `rg "<<<<<<<"` to find all merge conflicts.
 
 ## 3. Resolve conflicts

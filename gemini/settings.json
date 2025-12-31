@@ -6,7 +6,32 @@
   },
   "safety": {
     "auto_approve_readonly": true,
-    "always_allow": ["ls", "grep", "cat", "pwd", "find", "git status", "make"]
+    "always_allow": [
+      "ls",
+      "grep",
+      "cat",
+      "pwd",
+      "find",
+      "git",
+      "make",
+      "mkdir",
+      "touch",
+      "rm",
+      "cp",
+      "mv",
+      "pip",
+      "python",
+      "uv",
+      "xargs",
+      "sed",
+      "awk",
+      "head",
+      "tail",
+      "sort",
+      "uniq",
+      "wc",
+      "bash"
+    ]
   },
   "ui": {
     "theme": "Atom One"

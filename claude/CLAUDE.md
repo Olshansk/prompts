@@ -48,7 +48,21 @@ When writing READMes, start with the following direction:
 
 ### Multi-Language Quality Patterns <!-- omit in toc -->
 
-**Python:**
+**Python (uv):**
+
+```bash
+# Dependency management (prefer uv over pip)
+uv sync --all-extras        # Install deps (not pip install)
+uv run python script.py     # Run scripts (not .venv/bin/python)
+uv run pytest               # Run tools through uv
+
+# Quality checks
+uv run ruff check --fix .
+uv run ruff format .
+uv run mypy .
+```
+
+**Python (legacy/pip):**
 
 ```bash
 black .
