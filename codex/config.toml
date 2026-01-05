@@ -86,6 +86,9 @@ trust_level = "trusted"
 [projects."/Users/olshansky/.codex"]
 trust_level = "trusted"
 
+[projects."/Users/olshansky/workspace/follower-klout"]
+trust_level = "trusted"
+
 # Conservative environment handoff to tools/commands
 [shell_environment_policy]
 inherit = "core"                       # HOME, PATH, USER, etc.
@@ -135,6 +138,10 @@ hide_gpt5_1_migration_prompt = true
 [features]
 unified_exec = true
 shell_snapshot = true
+
+[ghost_snapshot]
+# Capture large untracked files in snapshots instead of skipping them.
+ignore_large_untracked_files = 0
 
 # A stricter profile you can switch to when you want maximum safety.
 [profiles.read_only]
