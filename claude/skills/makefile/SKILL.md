@@ -267,7 +267,10 @@ old-name: new_name ## (Legacy) Description
 - **Always read existing Makefile before changes**
 - **Search codebase before renaming targets** (`rg "make old-target"`)
 - **Test with `make help` and `make -n target`**
-- **Update docs after Makefile changes**
+- **Update docs after Makefile changes** - When adding new targets:
+  1. Add to `make help` output (in the appropriate section)
+  2. Update `CLAUDE.md` if the project has one (document new targets)
+  3. Update any other relevant docs (README.md, Agents.md, etc.)
 - **Never add targets without clear purpose**
 - **No line-specific references** - Avoid patterns like "Makefile:44" in docs/comments; use target names instead
 - **Single source of truth** - Config vars defined once in root Makefile, not duplicated in modules

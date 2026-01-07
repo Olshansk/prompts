@@ -7,3 +7,5 @@
 - I've updated the regex in `src/ghd_pipeline/steps/label_reader.py` to support Lab IDs with hyphens between the prefix and number (e.g., `WLT-1349-9`).
 - The images `IMG_1986.JPEG` and `IMG_2427.JPEG` are unreadable by both Surya and Tesseract OCR despite upscaling (2x), rotation (180/EXIF), preprocessing (Otsu/CLAHE), and card cropping attempts, due to low contrast and noise.
 - The SQLite database `cache/followers.db` has a `followers` table with primary key `(id, followed_username)`. It stores flattened follower data including `followers_count`, `screen_name`, etc. The script `scripts/json_to_sqlite.py` populates it from `merged.json` files.
+- Implemented `src/vision/smart_crop.py` which uses FastSAM (via `ultralytics`) to deterministically crop soil regions, avoiding labels and trays. It includes a fallback to texture-based sliding window. Run via `uv run python src/vision/smart_crop.py <image>`.
+- Updated GHD pipeline (`scripts/process_ghd_data.py`, `src/ghd_pipeline/pipeline.py`) to use `SmartCropper` by default. It now generates 4 crops per image using FastSAM (MPS/GPU enabled). Legacy contour cropping is available via `--no-smart-crop`.

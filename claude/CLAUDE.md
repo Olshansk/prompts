@@ -7,6 +7,8 @@
 - [MCP Server Management](#mcp-server-management)
 - [Context Loading Strategy](#context-loading-strategy)
 - [General Guidelines in code](#general-guidelines-in-code)
+- [TODO Comment Standards](#todo-comment-standards)
+- [Response Status Tags](#response-status-tags)
 
 ## Writing Code
 
@@ -127,9 +129,18 @@ Use specific TODO prefixes to categorize action items:
 - `NOTE:` - Important explanations or warnings for developers
 
 Example:
+
 ```python
 # TODO_IMPROVE: Implement connection pooling for better performance
 # TODO_IN_THIS_PR: Add input validation
 # FIXME: Race condition when multiple requests arrive simultaneously
 # HACK: Hardcoded timeout until we implement configurable settings
 ```
+
+## Response Status Tags
+
+End every response with exactly one of these tags (on its own line):
+
+- `[CLAUDE - DONE - SUCCESS]` - Task completed successfully (this should be green)
+- `[CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors (this should be red)
+- `[CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval (this should be yellow)
