@@ -141,6 +141,6 @@ Example:
 
 End every response with exactly one of these tags (on its own line):
 
-- `[CLAUDE - DONE - SUCCESS]` - Task completed successfully (this should be green)
-- `[CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors (this should be red)
-- `[CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval (this should be yellow)
+- `[✅ CLAUDE - DONE - SUCCESS]` - Task completed successfully (this should be green)
+- `[❌ CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors (this should be red)
+- `[⏳ CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval (this should be yellow)

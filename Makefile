@@ -53,6 +53,7 @@ sync-codex: ## Sync from ~/.codex to codex/
 	@[ -d ~/.codex/prompts ] && cp -r ~/.codex/prompts codex/ || true
 	@[ -d ~/.codex/rules ] && cp -r ~/.codex/rules codex/ || true
 	@[ -f ~/.codex/config.toml ] && cp ~/.codex/config.toml codex/ || true
+	@[ -f ~/.codex/AGENTS.md ] && cp ~/.codex/AGENTS.md codex/ || true
 	@echo "Done"
 
 #############################
