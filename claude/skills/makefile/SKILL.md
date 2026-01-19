@@ -323,19 +323,26 @@ help-unclassified: ## Show targets not in categorized help
 		printf "  (none)\n"
 ```
 
-**Usage examples on second line in green:**
+**Description format - one line with example:**
 ```makefile
-# Target description on first line
-@printf "$(CYAN)%-40s$(RESET) %s\n" "remove-bg" "Remove background from image"
-# Usage example on second line - use GREEN (not DIM, which appears grey)
-@printf "%-40s $(GREEN)make remove-bg IN=logo.png [OUT=logo_nobg.png]$(RESET)\n" ""
+# Good - concise description + example on next line
+@printf "$(CYAN)%-14s$(RESET) %s\n" "scrape" "Fetch posts into SQLite, detect problems"
+@printf "               $(GREEN)make scrape SUBREDDITS=python,django LIMIT=10$(RESET)\n"
+@printf "$(CYAN)%-14s$(RESET) %s\n" "dev-check" "Run ruff linter and formatter"
+@printf "               $(GREEN)make dev-check FIX=true$(RESET)\n"
+
+# Bad - too verbose, multi-line explanation
+@printf "  $(CYAN)$(BOLD)setup$(RESET)\n"
+@printf "      Install Python dependencies using uv. Run this once after cloning.\n"
+@printf "      Creates .venv/ and installs packages from pyproject.toml.\n"
+@printf "      $(GREEN)make setup$(RESET)\n"
 ```
 
-**Usage line format:**
-- Show on a separate second line (not inline with description)
-- Use `$(GREEN)` for visibility (avoid `$(DIM)` - appears grey/unreadable)
-- Include full command with realistic example values
-- Show optional params in brackets with sensible defaults
+**Help description rules:**
+- **One line max** - Description must fit on single line unless user explicitly asks for more
+- **Include what it affects** - e.g., "creates .venv", "exports to CSV", "deletes database"
+- **Example on next line** - Show realistic usage with parameters in `$(GREEN)`
+- **Skip examples for simple targets** - If no parameters, no example needed
 
 **Catch-all redirects to help:**
 ```makefile

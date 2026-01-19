@@ -1,0 +1,24 @@
+{
+  "name": "agent-session-commit",
+  "version": "0.1.0",
+  "description": "Capture session learnings to AGENTS.md for cross-tool AI interoperability",
+  "author": {
+    "name": "Daniel Olshansky",
+    "url": "https://github.com/olshansky"
+  },
+  "license": "MIT",
+  "keywords": ["agents", "claude-md", "session", "learnings", "interoperability"],
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c '[ $((RANDOM % 5)) -eq 0 ] && echo \"💡 Tip: Run /session-commit to capture session learnings to AGENTS.md\" >&2; exit 0'"
+          }
+        ]
+      }
+    ]
+  }
+}

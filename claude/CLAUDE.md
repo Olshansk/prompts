@@ -1,11 +1,13 @@
 # Olshansky's CLAUDE.md <!-- omit in toc -->
 
 - [Writing Code](#writing-code)
+- [Python](#python)
 - [Documentation](#documentation)
 - [Agent Rules Integration](#agent-rules-integration)
 - [Git Workflow Integration](#git-workflow-integration)
 - [MCP Server Management](#mcp-server-management)
 - [Context Loading Strategy](#context-loading-strategy)
+- [Custom Skills](#custom-skills)
 - [General Guidelines in code](#general-guidelines-in-code)
 - [TODO Comment Standards](#todo-comment-standards)
 - [Response Status Tags](#response-status-tags)
@@ -16,6 +18,16 @@
 - Leverage standard or open source libraries/tools rather than reinvesting the wheel
 - Focus on solving the problem, not trying to be a "clever engineer"
 - Be motivated by simplicity and speed to problem resolution, not "nerd sniping" anyone
+
+## Python
+
+**Always use `uv` for Python projects unless explicitly told otherwise.**
+
+- Use `uv sync` instead of `pip install`
+- Use `uv run python` instead of `python` or `.venv/bin/python`
+- Use `uv run <tool>` for running tools (pytest, ruff, mypy, etc.)
+- Create `pyproject.toml` for dependencies, not `requirements.txt`
+- Use `uv add <package>` to add dependencies
 
 ## Documentation
 
@@ -107,6 +119,26 @@ swiftlint --fix
 2. List project structure (`git ls-files | head -50`)
 3. Review configuration files (package.json, Cargo.toml, etc.)
 4. Understand development workflow
+
+## Custom Skills
+
+**IMPORTANT:** Check `~/.claude/skills/` for reusable skill definitions before starting relevant tasks.
+
+When a user mentions a "skill" (e.g., "makefile skill", "use your X skill"), always check this directory first:
+
+```bash
+ls ~/.claude/skills/
+```
+
+Available skills:
+
+- `makefile/` - Makefile conventions, templates, and patterns. Read `SKILL.md` for guidelines, check `templates/` for starter files.
+
+Each skill directory contains:
+- `SKILL.md` - Core principles and when to use
+- `reference.md` - Detailed patterns and examples
+- `templates/` - Copy-paste starter files
+- `modules/` - Reusable components
 
 ## General Guidelines in code
 

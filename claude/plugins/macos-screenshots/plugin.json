@@ -1,0 +1,17 @@
+{
+  "name": "macos-screenshots",
+  "description": "Resolve @latest_screenshot to most recent Desktop screenshot",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "@latest_screenshot",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/resolve-screenshot.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

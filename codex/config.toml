@@ -89,6 +89,15 @@ trust_level = "trusted"
 [projects."/Users/olshansky/workspace/follower-klout"]
 trust_level = "trusted"
 
+[projects."/Users/olshansky/workspace/breakingground/speak_to_log"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/configs"]
+trust_level = "trusted"
+
 # Conservative environment handoff to tools/commands
 [shell_environment_policy]
 inherit = "core"                       # HOME, PATH, USER, etc.

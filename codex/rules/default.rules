@@ -16,3 +16,5 @@ prefix_rule(pattern=["uv", "run", "python", "scripts/vlm_label_reader.py", "data
 prefix_rule(pattern=["uv", "run", "python", "scripts/vlm_label_reader.py", "data/ghd/IMG_2427.JPEG", "--backend", "rpc", "--rpc-target", "remote", "--model", "qwen/qwen-2.5-vl-7b-instruct:free", "--rpc-timeout", "60"], decision="allow")
 prefix_rule(pattern=["uv", "run", "python", "scripts/vlm_label_reader.py", "data/ghd/IMG_2427.JPEG", "--backend", "rpc", "--rpc-target", "remote", "--model", "qwen/qwen-2.5-vl-7b-instruct", "--rpc-timeout", "60"], decision="allow")
 prefix_rule(pattern=["/bin/zsh", "-lc", "cat <<'EOF' > /Users/olshansky/.codex/AGENTS.md\n# Global AGENTS.md\n\n<INSTRUCTIONS>\nAlways end every response with one of the following tags on its own line:\n[CODEX - INPUT NEEDED]\n[CODEX - DONE]\n</INSTRUCTIONS>\nEOF"], decision="allow")
+prefix_rule(pattern=["ps", "aux"], decision="allow")
+prefix_rule(pattern=["sysctl", "-n", "kern.maxproc"], decision="allow")
