@@ -33,6 +33,7 @@ sync-claude: ## Sync from ~/.claude to claude/
 	@[ -d ~/.claude/agents ] && cp -r ~/.claude/agents claude/ || true
 	@[ -d ~/.claude/commands ] && cp -r ~/.claude/commands claude/ || true
 	@[ -d ~/.claude/skills ] && cp -r ~/.claude/skills claude/ || true
+	@[ -d ~/.claude/plugins ] && cp -r ~/.claude/plugins claude/ || true
 	@[ -f ~/.claude/CLAUDE.md ] && cp ~/.claude/CLAUDE.md claude/ || true
 	@[ -f ~/.claude/Makefile ] && cp ~/.claude/Makefile claude/ || true
 	@[ -f ~/.claude/ideas.md ] && cp ~/.claude/ideas.md claude/ || true

@@ -30,7 +30,10 @@
       "sort",
       "uniq",
       "wc",
-      "bash"
+      "bash",
+      "node",
+      "npm",
+      "echo"
     ]
   },
   "ui": {

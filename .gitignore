@@ -1,3 +1,8 @@
+# Claude
+claude/plugins/cache/
+claude/plugins/install-counts-cache.json
+claude/plugins/marketplaces/
+
 # Codex
 codex/auth.json
 codex/history.jsonl
