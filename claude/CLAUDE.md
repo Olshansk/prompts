@@ -2,6 +2,7 @@
 
 - [Writing Code](#writing-code)
 - [Python](#python)
+- [CLI Tools (Search & Find)](#cli-tools-search--find)
 - [Documentation](#documentation)
 - [Agent Rules Integration](#agent-rules-integration)
 - [Git Workflow Integration](#git-workflow-integration)
@@ -28,6 +29,53 @@
 - Use `uv run <tool>` for running tools (pytest, ruff, mypy, etc.)
 - Create `pyproject.toml` for dependencies, not `requirements.txt`
 - Use `uv add <package>` to add dependencies
+
+## CLI Tools (Search & Find)
+
+**Prefer modern CLI tools over legacy alternatives:**
+
+| Task | Use | Instead of |
+|------|-----|------------|
+| Find files | `fd` | `find` |
+| Search content | `rg` | `grep` |
+
+**`fd` - Fast file finder:**
+
+```bash
+# Find files by extension
+fd -e md                        # All markdown files
+fd -e py -e pyi                 # Python files
+
+# Find files by name pattern
+fd "test_.*\.py$"               # Test files
+fd -H .env                      # Include hidden files (-H)
+
+# Find and execute
+fd -e py -x wc -l               # Count lines in all Python files
+```
+
+**`rg` (ripgrep) - Fast content search:**
+
+```bash
+# Basic search
+rg "TODO"                       # Search for TODO in all files
+rg "def.*async" -t py           # Search in Python files only
+
+# Context and output
+rg "error" -C 3                 # Show 3 lines context
+rg "pattern" -l                 # List files only (no content)
+rg "pattern" -c                 # Count matches per file
+
+# Advanced
+rg "class \w+" -o               # Show only matching part
+rg "import" --glob "*.py"       # Filter by glob pattern
+```
+
+**Why these tools:**
+- 10-100x faster than `find`/`grep`
+- Respect `.gitignore` by default
+- Better defaults and ergonomics
+- Colorized output
 
 ## Documentation
 
@@ -102,6 +150,7 @@ swiftlint --fix
 
 ## Git Workflow Integration
 
+- **User commits manually:** Do not ask "should I commit?" or offer to commit. I prefer to review changes and commit myself.
 - Conventional commit format: `type(scope): description`
 - Emoji prefixes: ✨ feat, 🐛 fix, 📝 docs, ♻️ refactor
 - Run quality checks before commits
@@ -153,20 +202,43 @@ Each skill directory contains:
 
 Use specific TODO prefixes to categorize action items:
 
+**Standard prefixes:**
 - `TODO:` - General improvements or future work (default)
 - `TODO_IMPROVE:` - Code quality improvements, refactoring opportunities
+- `TODO_OPTIMIZE:` - Performance improvements, efficiency gains
+- `TODO_IDEA:` - Potential features or enhancements to consider
+- `TODO_CONSIDERATION:` - Design decisions that may need revisiting
+- `TODO_TECHDEBT:` - Technical debt to address later
 - `TODO_IN_THIS_PR:` - Tasks to complete within the current pull request
 - `FIXME:` - Known bugs or issues that need fixing
 - `HACK:` - Temporary workarounds that should be replaced
 - `NOTE:` - Important explanations or warnings for developers
 
+**Required context for TODOs:**
+- **What:** Clear description of what needs to be done
+- **Why:** Context on why this is deferred or needed
+- **How (optional):** Implementation hints if not obvious
+- **Blocked (optional):** What's blocking this work
+
+**Prompting for TODOs:**
+When I say "don't do X" or "skip X for now" or decline a suggestion, Claude should:
+1. Check if a relevant TODO already exists
+2. If not, ask: "Should I add a TODO for this? What priority/prefix?"
+3. Add the TODO with proper context if confirmed
+
 Example:
 
 ```python
-# TODO_IMPROVE: Implement connection pooling for better performance
-# TODO_IN_THIS_PR: Add input validation
-# FIXME: Race condition when multiple requests arrive simultaneously
-# HACK: Hardcoded timeout until we implement configurable settings
+# TODO_OPTIMIZE: Implement connection pooling for better performance
+#       Why: Current approach creates new connection per request
+#       Blocked: Need to evaluate pgbouncer vs application-level pooling
+
+# TODO_TECHDEBT: Refactor to use dataclasses instead of dicts
+#       Why: Type safety and IDE autocomplete
+#       Priority: Low - works fine, just not ideal
+
+# TODO_IDEA: Support batch operations for bulk imports
+#       Why: Users importing large datasets hit rate limits
 ```
 
 ## Response Status Tags

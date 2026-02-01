@@ -101,6 +101,18 @@ trust_level = "trusted"
 [projects."/Users/olshansky/workspace/check_my_email_chrome_extension"]
 trust_level = "trusted"
 
+[projects."/Users/olshansky/workspace/breakingground"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/breakingground/analysis_api"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/ifp"]
+trust_level = "trusted"
+
+[projects."/Users/olshansky/workspace/breakingground/image_analysis2"]
+trust_level = "trusted"
+
 # Conservative environment handoff to tools/commands
 [shell_environment_policy]
 inherit = "core"                       # HOME, PATH, USER, etc.

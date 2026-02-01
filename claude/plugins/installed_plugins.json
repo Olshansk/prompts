@@ -6,59 +6,79 @@
         "scope": "user",
         "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
         "version": "1.0.0",
-        "installedAt": "2026-01-09T04:46:50.711Z",
-        "lastUpdated": "2026-01-09T04:46:50.711Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-20T16:07:09.643Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/frontend-design/96276205880a",
-        "version": "96276205880a",
-        "installedAt": "2026-01-09T21:12:01.728Z",
-        "lastUpdated": "2026-01-15T19:26:36.870Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/frontend-design/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-30T02:08:53.898Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/96276205880a",
-        "version": "96276205880a",
-        "installedAt": "2026-01-09T21:13:01.417Z",
-        "lastUpdated": "2026-01-15T19:26:36.871Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-30T02:08:53.920Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "agent-sdk-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/96276205880a",
-        "version": "96276205880a",
-        "installedAt": "2026-01-10T21:05:13.898Z",
-        "lastUpdated": "2026-01-15T19:26:36.890Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-30T02:08:53.897Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/feature-dev/96276205880a",
-        "version": "96276205880a",
-        "installedAt": "2026-01-10T21:07:59.728Z",
-        "lastUpdated": "2026-01-15T19:26:36.873Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/feature-dev/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-30T02:08:53.901Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "plugin-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/96276205880a",
-        "version": "96276205880a",
-        "installedAt": "2026-01-10T21:08:21.562Z",
-        "lastUpdated": "2026-01-15T19:26:36.889Z",
-        "gitCommitSha": "67ad9a7f2bc6404f15faf96c911c2cedbab0605c"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/27d2b86d72da",
+        "version": "27d2b86d72da",
+        "installedAt": "2026-01-20T16:07:09.643Z",
+        "lastUpdated": "2026-01-30T02:08:53.919Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
+      }
+    ],
+    "safety-net@cc-marketplace": [
+      {
+        "scope": "user",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/cc-marketplace/safety-net/0.7.1",
+        "version": "0.7.1",
+        "installedAt": "2026-01-21T04:02:52.103Z",
+        "lastUpdated": "2026-01-25T17:07:26.765Z",
+        "gitCommitSha": "b71fd9f24e87e49bfe19400d35b46ebae6ecdbc5"
+      }
+    ],
+    "agent-session-commit@olshansk": [
+      {
+        "scope": "user",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/olshansk/agent-session-commit/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-01-30T05:16:54.272Z",
+        "lastUpdated": "2026-01-30T05:16:54.272Z",
+        "gitCommitSha": "d06877cb11d9427eb49a478c3824f89019a940f5"
       }
     ]
   }

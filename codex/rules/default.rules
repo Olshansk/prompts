@@ -18,3 +18,7 @@ prefix_rule(pattern=["uv", "run", "python", "scripts/vlm_label_reader.py", "data
 prefix_rule(pattern=["/bin/zsh", "-lc", "cat <<'EOF' > /Users/olshansky/.codex/AGENTS.md\n# Global AGENTS.md\n\n<INSTRUCTIONS>\nAlways end every response with one of the following tags on its own line:\n[CODEX - INPUT NEEDED]\n[CODEX - DONE]\n</INSTRUCTIONS>\nEOF"], decision="allow")
 prefix_rule(pattern=["ps", "aux"], decision="allow")
 prefix_rule(pattern=["sysctl", "-n", "kern.maxproc"], decision="allow")
+prefix_rule(pattern=["uv", "run", "pytest", "tests/unit/test_account_balance.py", "-v"], decision="allow")
+prefix_rule(pattern=["make", "test_unit"], decision="allow")
+prefix_rule(pattern=["make", "api_export_spec"], decision="allow")
+prefix_rule(pattern=["uv", "run", "pytest", "tests/unit/test_wallet_linking_ens.py", "-v"], decision="allow")

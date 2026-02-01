@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "local",
+  "description": "Local plugins for personal use",
+  "owner": {
+    "name": "Daniel Olshansky",
+    "email": "olshansky.daniel@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "agent-session-commit",
+      "description": "Capture session learnings to AGENTS.md for cross-tool AI interoperability",
+      "version": "0.1.0",
+      "author": {
+        "name": "Daniel Olshansky",
+        "email": "olshansky.daniel@gmail.com"
+      },
+      "source": "./plugins/agent-session-commit"
+    }
+  ]
+}

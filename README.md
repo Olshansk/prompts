@@ -66,6 +66,7 @@ git add -A && git commit -m "Update configs" && git push
 **Claude** (`claude/`)
 - `agents/` - Custom Claude Code agents
 - `commands/` - Slash commands
+- `plugins/` - Local plugins
 - `CLAUDE.md` - Global instructions
 
 **Gemini** (`gemini/`)
@@ -73,3 +74,42 @@ git add -A && git commit -m "Update configs" && git push
 
 **Codex** (`codex/`)
 - TBD
+
+## Plugin Installation
+
+Claude Code plugins require two steps: copying files and enabling in settings.
+
+### 1. Copy Plugin Files
+
+```bash
+# Copy all plugins
+cp -r ~/workspace/prompts/claude/plugins/* ~/.claude/plugins/
+```
+
+### 2. Enable Plugins
+
+Add the plugin to `~/.claude/settings.json` under `enabledPlugins`:
+
+```json
+{
+  "enabledPlugins": {
+    "agent-session-commit": true
+  }
+}
+```
+
+### Available Plugins
+
+| Plugin | Description | Command |
+|--------|-------------|---------|
+| `agent-session-commit` | Capture session learnings to AGENTS.md | `/session-commit` |
+
+### Verify Installation
+
+```bash
+# Check plugin is loaded
+claude --debug 2>&1 | grep -i "agent-session-commit"
+
+# Or start Claude and run
+/session-commit
+```
