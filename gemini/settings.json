@@ -43,7 +43,8 @@
     "previewFeatures": true,
     "disableAutoUpdate": false,
     "debugKeystrokeLogging": false,
-    "enablePromptCompletion": true
+    "enablePromptCompletion": true,
+    "enableAutoUpdate": true
   },
   "output": {
     "format": "text"

@@ -25,10 +25,10 @@ Don't over engineer or write long unnecessary documentation.
 
 ## Building Context
 
-1. Do a git diff
-   - If a `testnet` branch is available, do a `git diff testnet` and move on to step 2.
-   - If a `staging` branch is available, do a `git diff staging` and move on to step 2.
-   - If it is not, do a `git diff main` and move on to step 2.
+1. Do a git diff (excluding lock files and package.json)
+   - If a `testnet` branch is available, do a `git diff testnet -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"` and move on to step 2.
+   - If a `staging` branch is available, do a `git diff staging -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"` and move on to step 2.
+   - If it is not, do a `git diff main -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"` and move on to step 2.
 2. Spend a couple of minutes building context on the changes made
 3. Don't rush
 4. Be thorough

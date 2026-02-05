@@ -16,6 +16,7 @@ Detailed patterns and conventions for creating maintainable Makefiles.
 - [Global Error Handling](#global-error-handling)
 - [Improving Existing Makefiles](#improving-existing-makefiles)
 - [Common Refactoring Patterns](#common-refactoring-patterns)
+- [Flutter Patterns](#flutter-patterns)
 
 ## Python/uv Patterns
 
@@ -441,3 +442,98 @@ test: ## Run tests
 	pytest
 	@printf "$(GREEN)✓ Tests passed$(RESET)\n"
 ```
+
+## Flutter Patterns
+
+### FLUTTER_DIR for Monorepo vs Standalone
+
+Standalone Flutter projects default to `.` (the current directory). Monorepos override to point at the Flutter subdirectory:
+
+```makefile
+# Standalone project (default)
+FLUTTER_DIR ?= .
+
+# Monorepo — override in root Makefile
+FLUTTER_DIR ?= flutter_app
+```
+
+All Flutter targets `cd` into `FLUTTER_DIR` before running commands, so this works transparently.
+
+### Device Auto-Detection
+
+**iOS Simulator — auto-boot + wait loop:**
+
+The `flutter-run-ios` target opens Simulator.app, then polls `xcrun simctl list devices booted` until a booted simulator appears. This avoids hardcoding simulator names.
+
+```makefile
+@open -a Simulator
+@SIMULATOR_NAME=$$(xcrun simctl list devices booted -j 2>/dev/null | python3 -c "..."); \
+if [ -z "$$SIMULATOR_NAME" ]; then \
+    # wait loop until booted ...
+fi; \
+cd $(FLUTTER_DIR) && flutter run -d "$$SIMULATOR_NAME"
+```
+
+**Android Emulator — auto-launch + wait loop:**
+
+The `flutter-run-android` target finds the first available Android emulator, launches it, then polls `flutter devices --machine` until it appears.
+
+**Physical Device — explicit or auto-detect:**
+
+```makefile
+# Explicit device ID
+make flutter-run-device FLUTTER_IOS_DEVICE=00008150-001A29DC2200401C
+
+# Auto-detect first connected physical device
+make flutter-run-device
+```
+
+The auto-detect uses `flutter devices --machine` and filters out emulators.
+
+### ExportOptions.plist for IPA Builds
+
+The `flutter-build-ipa` target requires an `ExportOptions.plist` for App Store distribution. Default location:
+
+```makefile
+EXPORT_OPTIONS_PLIST ?= ios/ExportOptions.plist
+```
+
+This file configures signing, provisioning profile, and export method. Generate it by archiving once in Xcode, or create manually:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "...">
+<plist version="1.0">
+<dict>
+    <key>method</key>
+    <string>app-store-connect</string>
+    <key>destination</key>
+    <string>upload</string>
+</dict>
+</plist>
+```
+
+### App Store Connect Credential Validation
+
+The `_check-asc-credentials` internal target validates both `ASC_API_KEY` and `ASC_API_ISSUER` before attempting upload. Set them in your environment or pass inline:
+
+```bash
+# Environment variables
+export ASC_API_KEY=YOUR_KEY_ID
+export ASC_API_ISSUER=YOUR_ISSUER_ID
+make flutter-deploy-testflight
+
+# Or inline
+ASC_API_KEY=YOUR_KEY_ID ASC_API_ISSUER=YOUR_ISSUER_ID make flutter-deploy-testflight
+```
+
+The API key `.p8` file must be at `~/.private_keys/AuthKey_<ASC_API_KEY>.p8`.
+
+### Android Build Variants (APK vs AAB)
+
+| Target | Format | Use Case |
+|--------|--------|----------|
+| `flutter-build-apk` | `.apk` | Debug/testing, direct device install |
+| `flutter-build-aab` | `.aab` | Google Play Store upload (required for new apps) |
+
+Both targets show file path and size after build completes.

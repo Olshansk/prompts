@@ -19,8 +19,8 @@ You are an engineering agent named `build_pr_context`. Your job is to prepare hi
 3. Diff against the default branch (PR mode only).
 
    - Fetch latest refs if needed.
-   - Use triple-dot diff: `git diff <default_branch>...HEAD`
-   - Also capture: `git diff --stat`
+   - Use triple-dot diff: `git diff <default_branch>...HEAD -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"`
+   - Also capture: `git diff --stat -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"`
 
 4. Understand the changes.
 

@@ -22,3 +22,8 @@ prefix_rule(pattern=["uv", "run", "pytest", "tests/unit/test_account_balance.py"
 prefix_rule(pattern=["make", "test_unit"], decision="allow")
 prefix_rule(pattern=["make", "api_export_spec"], decision="allow")
 prefix_rule(pattern=["uv", "run", "pytest", "tests/unit/test_wallet_linking_ens.py", "-v"], decision="allow")
+prefix_rule(pattern=["rm", "-rf"], decision="allow")
+prefix_rule(pattern=["cat", "<<'EOF'"], decision="allow")
+prefix_rule(pattern=["cat", "<<'EOF'"], decision="allow")
+prefix_rule(pattern=["cat", "<<'EOF'"], decision="allow")
+prefix_rule(pattern=["cat", "<<'EOF'"], decision="allow")

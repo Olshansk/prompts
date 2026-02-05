@@ -71,14 +71,14 @@
         "gitCommitSha": "b71fd9f24e87e49bfe19400d35b46ebae6ecdbc5"
       }
     ],
-    "agent-session-commit@olshansk": [
+    "agent-md@olshansk": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/olshansk/agent-session-commit/0.1.0",
-        "version": "0.1.0",
-        "installedAt": "2026-01-30T05:16:54.272Z",
-        "lastUpdated": "2026-01-30T05:16:54.272Z",
-        "gitCommitSha": "d06877cb11d9427eb49a478c3824f89019a940f5"
+        "installPath": "/Users/olshansky/.claude/plugins/cache/olshansk/agent-md/0.2.0",
+        "version": "0.2.0",
+        "installedAt": "2026-02-01T19:30:31.979Z",
+        "lastUpdated": "2026-02-01T19:30:31.979Z",
+        "gitCommitSha": "7ec0b571b20cac8ddddd475cd94f3278da1bb38f"
       }
     ]
   }

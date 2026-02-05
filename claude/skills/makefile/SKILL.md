@@ -1,6 +1,6 @@
 ---
 name: makefile
-description: Create or improve Makefiles with minimal complexity. Templates available: base, python-uv, python-fastapi, nodejs, go, chrome-extension.
+description: Create or improve Makefiles with minimal complexity. Templates available: base, python-uv, python-fastapi, nodejs, go, chrome-extension, flutter.
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
@@ -36,6 +36,7 @@ For new projects, use the appropriate template:
 | Node.js | `templates/nodejs.mk` | Standard |
 | Go | `templates/go.mk` | Standard |
 | Chrome Extension | `templates/chrome-extension.mk` | Modular |
+| Flutter App | `templates/flutter.mk` | Modular |
 
 ### Chrome Extension Structure
 
@@ -57,6 +58,29 @@ Copy from `templates/chrome-extension-modules/` to your project's `makefiles/` d
 - `build-beta` - (Optional) GitHub releases with `gh` CLI
 - `dev-test` / `dev-test-e2e` - Vitest + Playwright testing
 - `VERBOSE=1 make <target>` - Show commands for debugging
+
+### Flutter App Structure
+
+```
+Makefile                    # Main file with help + includes
+makefiles/
+  colors.mk                # ANSI colors & print helpers
+  common.mk                # Shell flags, VERBOSE mode, guards
+  dev.mk                   # Setup, run simulator/device, devices, clean
+  build.mk                 # iOS/Android builds (IPA, APK, AAB)
+  deploy.mk                # TestFlight upload
+  lint.mk                  # Dart analyze & format
+```
+
+Copy from `templates/flutter-modules/` to your project's `makefiles/` directory.
+
+**Key features:**
+- `flutter-run-ios` auto-boots simulator and waits for it
+- `flutter-run-android` auto-launches emulator and waits for it
+- `flutter-run-device` auto-detects or uses `FLUTTER_IOS_DEVICE` / `FLUTTER_ANDROID_DEVICE`
+- `flutter-build-ipa` + `flutter-deploy-testflight` full iOS release workflow
+- `flutter-lint FIX=true` Dart formatting with FIX pattern
+- `VERBOSE=1 make <target>` show commands for debugging
 
 ## Interaction Pattern
 
