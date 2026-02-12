@@ -6,16 +6,32 @@ Output the result in a markdown file named `PR_DESCRIPTION.md`.
 
 ## Instructions
 
-1. First, determine the base branch:
-   - Ask the user if not specified
-   - Common bases: `main`, `master`, or a feature branch
-   - You can use `gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'`
+1. First, determine the base branch using the repository's default branch:
 
-2. Analyze the changes:
+   Try these methods in order until one succeeds:
+
+   **Method 1 - GitHub CLI:**
+   ```bash
+   BASE_BRANCH=$(gh repo view --json defaultBranchRef -q '.defaultBranchRef.name' 2>/dev/null)
+   ```
+
+   **Method 2 - Git remote:**
+   ```bash
+   BASE_BRANCH=$(git remote show origin 2>/dev/null | grep "HEAD branch" | cut -d: -f2 | xargs)
+   ```
+
+   **Method 3 - Git symbolic-ref:**
+   ```bash
+   BASE_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+   ```
+
+   **IMPORTANT:** Do NOT assume `main` as a fallback. If all methods fail, ask the user which branch to use as the base.
+
+2. Analyze the changes against the default branch:
 
    ```bash
-   git diff <base-branch> --stat -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"
-   git log <base-branch>..HEAD --oneline
+   git diff $BASE_BRANCH --stat -- ":(exclude)*.lock" ":(exclude)package-lock.json" ":(exclude)pnpm-lock.yaml" ":(exclude)package.json"
+   git log $BASE_BRANCH..HEAD --oneline
    ```
 
 3. Generate the description using the format below

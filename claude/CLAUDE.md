@@ -88,6 +88,31 @@ When writing READMes, start with the following direction:
 - Triple quotes: always add the appropriate syntax highlighting. For example: ```bash...`
 - References: Use industry best practices from great products as a reference for how they write their documentation
 - Copy-pasta: Provide easy-copy pasta instructions that enable developers to onboard brainlessley
+- Code blocks: Never put multiple commands in a single code block with comments. Instead, use separate code blocks with bold headers:
+
+  **Bad:**
+  ```bash
+  # Step 1: Do thing
+  command-one
+
+  # Step 2: Do other thing
+  command-two
+  ```
+
+  **Good:**
+  ```markdown
+  **Do thing:**
+
+  ```bash
+  command-one
+  ```
+
+  **Do other thing:**
+
+  ```bash
+  command-two
+  ```
+  ```
 
 ## Agent Rules Integration
 

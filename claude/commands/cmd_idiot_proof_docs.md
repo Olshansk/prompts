@@ -1,22 +1,104 @@
-# Write or Edit Idiot Proof Documentation
+# Simple Docs for Humans and Agents
 
-This rule relates to updating or writing documentation.
+Use this command to write or rewrite documentation so it is simple, fast to scan, and easy to execute.
 
-## Things to do
+## Primary Goal
 
-- **Favor brevity:** default to bullet points and concise sentences.
-- **Show the layout:** add a “Code Structure” section when it clarifies the project’s file/folder organization.
-- **Map the terrain:** use clear headings & sub-headings so readers can scan quickly.
-- **Teach by example:** include a “Getting Started” code snippet that demonstrates basic usage.
-- **Expose configuration:** if the project relies on environment variables, list them in a table with name, purpose, and default.
-- **Pick tables when clearer:** choose a table over prose whenever it improves readability.
-- **Ship the result:** provide the finished document as a Markdown (`.md`) file.
-- **Think copy-paste:** write snippets that work verbatim so readers can drop them into a terminal or editor.
-- **Assume short attention spans:** surface the most important info early and avoid fluff.
-- **Preserve substance:** keep every piece of original content—only re-phrase or re-order for clarity.
+- Bias toward simple docs.
+- Start with the shortest successful path.
+- Preserve original meaning and factual content while reordering for clarity.
 
-## Things not to do
+## Required Output Order
 
-- Add a code structure section for documentation where it's not relevant
-- Changing a sentence to a bullet point when there's only one point.
-- Adding newlines when its unnecessary
+1. Quickstart (always first)
+2. Main workflow
+3. Configuration/reference tables (when relevant)
+4. Alternative paths (only when they are true user/code path alternatives)
+5. Extra details at the end inside `<details><summary>...</summary>...</details>`
+
+## Approval Gate (Required)
+
+- Before editing any file, show a change preview for approval.
+- Use this exact preview structure for each file:
+  - Additions
+  - Removals
+  - Changes
+- Show the concrete text to be added, removed, or changed.
+- Wait for explicit user approval before applying edits.
+- Apply only the approved edits.
+- If approval is not granted, do not modify files.
+
+## Core Rules
+
+- Optimize for both human readers and agent readers.
+- Maximize copy-paste command snippets.
+- Prefer short sections and concise language.
+- Use Markdown tables when information is structured.
+- Use Mermaid diagrams when they improve understanding of flow or architecture.
+- Avoid unnecessary sections.
+- Avoid "Optional" sections unless they represent an actual alternate path.
+- Put superfluous/background material at the end.
+- Add "Code Structure" only when repository layout helps task completion.
+
+## Command Block Rules (Strict)
+
+- Do not place comments inside bash code blocks.
+- Put labels outside code blocks.
+
+Correct pattern:
+
+Start the server:
+
+```bash
+make start_server
+```
+
+Run a command:
+
+```bash
+make run_command
+```
+
+Incorrect pattern (separate steps combined in one unlabeled block):
+
+```bash
+make start_server
+make run_command
+```
+
+## Section Defaults
+
+Use only sections that add value for the specific document. Default section set:
+
+- Quickstart
+- Main Workflow
+- Configuration
+- Code Structure (only if useful)
+- Troubleshooting (only for real recurring issues)
+
+## Configuration Table Format
+
+If environment variables or configuration values are required, use this format:
+
+| Name | Purpose | Default |
+| --- | --- | --- |
+| `APP_ENV` | Runtime environment | `development` |
+| `API_URL` | Base URL for API calls | `http://localhost:8000` |
+
+## Details Block Rule
+
+Move long explanations, implementation notes, and low-priority reference material into details blocks:
+
+```markdown
+<details>
+<summary>Deep dive: request lifecycle</summary>
+
+Detailed explanation here.
+
+</details>
+```
+
+## Deliverable
+
+- Return the final output as Markdown (`.md`).
+- Keep all important content, but simplify, reorder, and prioritize for quick execution.

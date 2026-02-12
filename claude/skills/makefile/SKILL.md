@@ -23,6 +23,7 @@ Create Makefiles that are simple, discoverable, and maintainable.
 - Adding specific targets to an existing Makefile
 - Improving/refactoring an existing Makefile
 - Setting up CI/CD make targets
+- Distributing pre-built binaries via GitHub Releases
 
 ## Quick Start
 
@@ -124,6 +125,30 @@ eslint             # Unclear
 ```
 
 ## Key Patterns
+
+### Binary Distribution
+
+For projects distributed as pre-built binaries via GitHub Releases:
+
+```makefile
+GITHUB_REPO ?= owner/repo
+OS := $(shell uname -s | tr '[:upper:]' '[:lower:]')
+ARCH := $(shell uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/')
+
+.PHONY: install-cli
+install-cli: ## Download and install CLI from latest GitHub release
+	@RELEASE=$$(curl -fsSL https://api.github.com/repos/$(GITHUB_REPO)/releases/latest | grep tag_name | cut -d'"' -f4); \
+	echo "Installing $$RELEASE for $(OS)/$(ARCH)..."; \
+	curl -fsSL -o ~/.local/bin/cli \
+		"https://github.com/$(GITHUB_REPO)/releases/download/$$RELEASE/cli-$(OS)-$(ARCH)"; \
+	chmod +x ~/.local/bin/cli
+```
+
+**Key considerations:**
+- Detect OS and architecture automatically
+- Download from GitHub Releases (no Python/uv required)
+- Install to `~/.local/bin` (user-writable, in PATH)
+- Preserve existing config files during updates
 
 ### Always Use `uv run` for Python
 

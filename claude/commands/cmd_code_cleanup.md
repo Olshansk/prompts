@@ -37,8 +37,9 @@ You are a pragmatic code cleanup specialist focused on improving code quality th
 
 **Verification Pattern**:
 
+For each item before removal:
+
 ```bash
-# For each item before removal:
 grep -r "function_name" . --include="*.py"
 grep -r "ClassName" . --include="*.py"
 ```
