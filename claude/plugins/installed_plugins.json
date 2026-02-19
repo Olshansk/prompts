@@ -3,61 +3,64 @@
   "plugins": {
     "code-simplifier@claude-plugins-official": [
       {
-        "scope": "user",
+        "scope": "project",
         "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-01-20T16:07:09.643Z",
-        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
+        "lastUpdated": "2026-02-19T17:00:51.865Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf",
+        "projectPath": "/Users/olshansky/workspace/grove/grove_extension"
       }
     ],
     "frontend-design@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/frontend-design/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "scope": "project",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/frontend-design/8deab8460a9d",
+        "version": "8deab8460a9d",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-06T23:58:34.355Z",
-        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
+        "lastUpdated": "2026-02-19T17:00:51.865Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf",
+        "projectPath": "/Users/olshansky/workspace/grove/grove_extension"
       }
     ],
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/8deab8460a9d",
+        "version": "8deab8460a9d",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-06T23:58:34.333Z",
+        "lastUpdated": "2026-02-19T02:07:12.944Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "agent-sdk-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/8deab8460a9d",
+        "version": "8deab8460a9d",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-06T23:58:34.335Z",
+        "lastUpdated": "2026-02-19T02:07:12.926Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
-        "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/feature-dev/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "scope": "project",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/feature-dev/8deab8460a9d",
+        "version": "8deab8460a9d",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-06T23:58:34.332Z",
-        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
+        "lastUpdated": "2026-02-19T17:00:51.865Z",
+        "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf",
+        "projectPath": "/Users/olshansky/workspace/grove/grove_extension"
       }
     ],
     "plugin-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/2cd88e7947b7",
-        "version": "2cd88e7947b7",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/8deab8460a9d",
+        "version": "8deab8460a9d",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-06T23:58:34.352Z",
+        "lastUpdated": "2026-02-19T02:07:12.943Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
@@ -79,6 +82,28 @@
         "installedAt": "2026-02-01T19:30:31.979Z",
         "lastUpdated": "2026-02-01T19:30:31.979Z",
         "gitCommitSha": "7ec0b571b20cac8ddddd475cd94f3278da1bb38f"
+      }
+    ],
+    "frontend-design@claude-code-plugins": [
+      {
+        "scope": "project",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-code-plugins/frontend-design/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-02-19T17:00:51.865Z",
+        "lastUpdated": "2026-02-19T17:00:51.865Z",
+        "gitCommitSha": "b757fc9ecdf77e450442e3ca9f9093a9da35952b",
+        "projectPath": "/Users/olshansky/workspace/grove/grove_extension"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "project",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/ralph-loop/8deab8460a9d",
+        "version": "8deab8460a9d",
+        "installedAt": "2026-02-19T17:00:51.865Z",
+        "lastUpdated": "2026-02-19T17:00:51.865Z",
+        "gitCommitSha": "8deab8460a9d4df5a01315ef722a5ca6b061c074",
+        "projectPath": "/Users/olshansky/workspace/grove/grove_extension"
       }
     ]
   }

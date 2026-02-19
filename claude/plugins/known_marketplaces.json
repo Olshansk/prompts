@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-02-12T22:13:20.297Z"
+    "lastUpdated": "2026-02-19T02:07:12.914Z"
   },
   "cc-marketplace": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "kenryu42/cc-marketplace"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/cc-marketplace",
-    "lastUpdated": "2026-02-12T21:52:13.485Z",
+    "lastUpdated": "2026-02-19T17:58:20.629Z",
     "autoUpdate": true
   },
   "claude-code-plugins": {
@@ -22,7 +22,7 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-02-12T21:39:40.152Z"
+    "lastUpdated": "2026-02-19T17:01:11.725Z"
   },
   "olshansk": {
     "source": {
