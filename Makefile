@@ -16,6 +16,9 @@ help: ## Prints all the targets in the Makefile
 	@echo "$(BOLD)=== Sync Commands ===$(RESET)"
 	@grep -h -E '^sync.*:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-40s$(RESET) %s\n", $$1, $$2}'
 	@echo ""
+	@echo "$(BOLD)=== Share ===$(RESET)"
+	@grep -h -E '^share.*:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-40s$(RESET) %s\n", $$1, $$2}'
+	@echo ""
 	@echo "$(BOLD)=== Info ===$(RESET)"
 	@grep -h -E '^(help|status):.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-40s$(RESET) %s\n", $$1, $$2}'
 	@echo ""
@@ -55,6 +58,33 @@ sync-codex: ## Sync from ~/.codex to codex/
 	@if [ -d ~/.codex/rules ]; then rsync -a --delete --exclude '.git' ~/.codex/rules codex/; else rm -rf codex/rules; fi
 	@[ -f ~/.codex/config.toml ] && cp ~/.codex/config.toml codex/ || true
 	@[ -f ~/.codex/AGENTS.md ] && cp ~/.codex/AGENTS.md codex/ || true
+	@echo "Done"
+
+#############################
+### Share Commands        ###
+#############################
+
+CLAUDE_SKILLS := $(HOME)/.claude/skills
+SHARE_TARGETS := $(HOME)/.gemini/antigravity/skills $(HOME)/.codex/skills
+
+.PHONY: share-skills
+share-skills: ## Symlink custom claude skills into gemini and codex
+	@echo "Sharing custom skills across agents..."
+	@for target_dir in $(SHARE_TARGETS); do \
+		mkdir -p "$$target_dir"; \
+		for skill in $(CLAUDE_SKILLS)/*/; do \
+			name=$$(basename "$$skill"); \
+			[ -L "$(CLAUDE_SKILLS)/$$name" ] && continue; \
+			[ -e "$$target_dir/$$name" ] && continue; \
+			ln -s "$(CLAUDE_SKILLS)/$$name" "$$target_dir/$$name"; \
+			echo "  + $$name -> $$target_dir"; \
+		done; \
+		for link in "$$target_dir"/*; do \
+			[ -L "$$link" ] || continue; \
+			readlink "$$link" | grep -q "$(CLAUDE_SKILLS)" || continue; \
+			[ -e "$$link" ] || { echo "  - $$(basename $$link) (stale)"; rm -f "$$link"; }; \
+		done; \
+	done
 	@echo "Done"
 
 #############################
