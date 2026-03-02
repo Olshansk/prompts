@@ -26,20 +26,20 @@
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/aa296ec81e8c",
-        "version": "aa296ec81e8c",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/code-review/55b58ec6e564",
+        "version": "55b58ec6e564",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-20T17:03:27.898Z",
+        "lastUpdated": "2026-02-25T05:01:04.766Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
     "agent-sdk-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/aa296ec81e8c",
-        "version": "aa296ec81e8c",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/agent-sdk-dev/55b58ec6e564",
+        "version": "55b58ec6e564",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-20T17:03:27.900Z",
+        "lastUpdated": "2026-02-25T05:01:04.769Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
@@ -57,10 +57,10 @@
     "plugin-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/aa296ec81e8c",
-        "version": "aa296ec81e8c",
+        "installPath": "/Users/olshansky/.claude/plugins/cache/claude-plugins-official/plugin-dev/55b58ec6e564",
+        "version": "55b58ec6e564",
         "installedAt": "2026-01-20T16:07:09.643Z",
-        "lastUpdated": "2026-02-20T17:03:27.926Z",
+        "lastUpdated": "2026-02-25T05:01:04.793Z",
         "gitCommitSha": "96276205880a60fd66bbae981f5ab568e70c4cbf"
       }
     ],
@@ -72,16 +72,6 @@
         "installedAt": "2026-01-21T04:02:52.103Z",
         "lastUpdated": "2026-01-25T17:07:26.765Z",
         "gitCommitSha": "b71fd9f24e87e49bfe19400d35b46ebae6ecdbc5"
-      }
-    ],
-    "agent-md@olshansk": [
-      {
-        "scope": "user",
-        "installPath": "/Users/olshansky/.claude/plugins/cache/olshansk/agent-md/0.2.0",
-        "version": "0.2.0",
-        "installedAt": "2026-02-01T19:30:31.979Z",
-        "lastUpdated": "2026-02-01T19:30:31.979Z",
-        "gitCommitSha": "7ec0b571b20cac8ddddd475cd94f3278da1bb38f"
       }
     ],
     "frontend-design@claude-code-plugins": [

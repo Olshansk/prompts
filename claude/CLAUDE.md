@@ -270,6 +270,7 @@ Example:
 
 End every response with exactly one of these tags (on its own line):
 
-- `[✅ CLAUDE - DONE - SUCCESS]` - Task completed successfully (this should be green)
-- `[❌ CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors (this should be red)
-- `[⏳ CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval (this should be yellow)
+- `[✅ CLAUDE - DONE - SUCCESS]` - Task completed successfully, all items green
+- `[❌ CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors
+- `[⏳ CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval
+- `[🔴 CLAUDE - DONE - PARTIAL]` - Task partially completed; some items succeeded but others are blocked or failed. Use this when at least one item could not be completed (e.g., missing `.env`, infra down, dependency unavailable). Always pair with a prominent blockers summary showing exactly what failed and why.

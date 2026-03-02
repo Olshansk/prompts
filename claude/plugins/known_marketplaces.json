@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-02-23T03:31:56.938Z"
+    "lastUpdated": "2026-03-01T05:05:03.418Z"
   },
   "cc-marketplace": {
     "source": {
@@ -13,7 +13,7 @@
       "repo": "kenryu42/cc-marketplace"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/cc-marketplace",
-    "lastUpdated": "2026-02-23T17:26:02.065Z",
+    "lastUpdated": "2026-03-02T02:57:32.788Z",
     "autoUpdate": true
   },
   "claude-code-plugins": {
@@ -22,14 +22,6 @@
       "repo": "anthropics/claude-code"
     },
     "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/claude-code-plugins",
-    "lastUpdated": "2026-02-23T03:46:38.595Z"
-  },
-  "olshansk": {
-    "source": {
-      "source": "github",
-      "repo": "olshansk/agent-md"
-    },
-    "installLocation": "/Users/olshansky/.claude/plugins/marketplaces/olshansk",
-    "lastUpdated": "2026-02-01T19:30:02.943Z"
+    "lastUpdated": "2026-03-01T20:27:03.575Z"
   }
 }
