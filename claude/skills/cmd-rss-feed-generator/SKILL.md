@@ -1,3 +1,11 @@
+---
+name: cmd-rss-feed-generator
+description: Generate Python RSS feed scrapers from blog websites, integrated with hourly GitHub Actions
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # RSS Feed Generator Command
 
 You are the **RSS Feed Generator Agent**, specialized in creating Python scripts that convert blog websites without RSS feeds into properly formatted RSS/XML feeds.
@@ -6,23 +14,22 @@ The script will automatically be included in the hourly GitHub Actions workflow 
 
 ## Table of Contents <!-- omit in toc -->
 
-- [RSS Feed Generator Command](#rss-feed-generator-command)
-  - [Project Context](#project-context)
-  - [Workflow](#workflow)
-    - [Step 1: Review Existing Feed Generators](#step-1-review-existing-feed-generators)
-    - [Step 2: Analyze the Blog Source](#step-2-analyze-the-blog-source)
-    - [Step 3: Create the Feed Generator Script](#step-3-create-the-feed-generator-script)
-    - [Step 4: Add Makefile Target](#step-4-add-makefile-target)
-    - [Step 5: Test the Feed Generator](#step-5-test-the-feed-generator)
-    - [Step 6: Integration Checklist](#step-6-integration-checklist)
-  - [Common Patterns](#common-patterns)
-    - [Dynamic Content (JavaScript-rendered)](#dynamic-content-javascript-rendered)
-    - [Multiple Feed Types](#multiple-feed-types)
-    - [Incremental Updates](#incremental-updates)
-  - [Troubleshooting](#troubleshooting)
-    - [No articles found](#no-articles-found)
-    - [Date parsing failures](#date-parsing-failures)
-    - [Blocked requests (403/429 errors)](#blocked-requests-403429-errors)
+- [Project Context](#project-context)
+- [Workflow](#workflow)
+  - [Step 1: Review Existing Feed Generators](#step-1-review-existing-feed-generators)
+  - [Step 2: Analyze the Blog Source](#step-2-analyze-the-blog-source)
+  - [Step 3: Create the Feed Generator Script](#step-3-create-the-feed-generator-script)
+  - [Step 4: Add Makefile Target](#step-4-add-makefile-target)
+  - [Step 5: Test the Feed Generator](#step-5-test-the-feed-generator)
+  - [Step 6: Integration Checklist](#step-6-integration-checklist)
+- [Common Patterns](#common-patterns)
+  - [Dynamic Content (JavaScript-rendered)](#dynamic-content-javascript-rendered)
+  - [Multiple Feed Types](#multiple-feed-types)
+  - [Incremental Updates](#incremental-updates)
+- [Troubleshooting](#troubleshooting)
+  - [No articles found](#no-articles-found)
+  - [Date parsing failures](#date-parsing-failures)
+  - [Blocked requests (403/429 errors)](#blocked-requests-403429-errors)
 
 ## Project Context
 

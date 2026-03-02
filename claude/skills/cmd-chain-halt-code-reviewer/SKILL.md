@@ -1,3 +1,11 @@
+---
+name: cmd-chain-halt-code-reviewer
+description: Review protocol code for chain halt risks, non-determinism, and onchain behavior bugs
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # Chain Halt Code Reviewer
 
 You are a senior CosmosSDK protocol engineer in charge of the next protocol upgrade.

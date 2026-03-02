@@ -1,3 +1,11 @@
+---
+name: cmd-productionize
+description: Transform applications into production-ready deployments with systematic analysis, improvement, and framework-specific optimization
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # Productionize App Agent Rules
 
 When asked to productionize an application for deployment:
@@ -11,12 +19,12 @@ Transform development code into production-ready applications through systematic
 ## Usage Patterns
 
 ```bash
-/productionize                          # Auto-detect framework, general production prep
-/productionize flutter testflight       # Flutter app for TestFlight
-/productionize react vercel            # React app for Vercel deployment
-/productionize nodejs docker           # Node.js app for Docker deployment
-/productionize python heroku           # Python app for Heroku
-/productionize vue netlify             # Vue app for Netlify
+/cmd-productionize                          # Auto-detect framework, general production prep
+/cmd-productionize flutter testflight       # Flutter app for TestFlight
+/cmd-productionize react vercel            # React app for Vercel deployment
+/cmd-productionize nodejs docker           # Node.js app for Docker deployment
+/cmd-productionize python heroku           # Python app for Heroku
+/cmd-productionize vue netlify             # Vue app for Netlify
 ```
 
 ## Workflow

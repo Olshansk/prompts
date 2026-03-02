@@ -1,3 +1,9 @@
+---
+name: cmd-pr-description
+description: Generate concise PR descriptions by analyzing the diff against a base branch
+disable-model-invocation: true
+---
+
 # Quick PR Description
 
 Generate a concise PR description by analyzing the diff against a base branch.
@@ -46,7 +52,7 @@ Write 3-5 bullet points. Each bullet follows this format:
 - **Product-level value** - One sentence explaining what changed and why it matters
 ```
 
-Focus on what the PR delivers for users, operators, or developers — not implementation details.
+Focus on what the PR delivers for users, operators, or developers -- not implementation details.
 
 ```markdown
 - **Faster giveaway queries** - Entries and winners now track account IDs directly, eliminating slow multi-table joins
@@ -57,11 +63,11 @@ Focus on what the PR delivers for users, operators, or developers — not implem
 
 ## Style Rules
 
-- **3-5 bullets total** — one bullet per meaningful change, not per file
-- **Bold the value** — the bold phrase should answer "what does the user/operator get?"
-- **Plain language after the dash** — one sentence, no jargon, no function/file/variable names
-- **No implementation details** — skip function names, file names, column names, migration IDs, etc. Reviewers will read the diff for that
-- **No fluff** — skip "minor cleanup", "refactor", "update docs" unless they deliver real value
+- **3-5 bullets total** -- one bullet per meaningful change, not per file
+- **Bold the value** -- the bold phrase should answer "what does the user/operator get?"
+- **Plain language after the dash** -- one sentence, no jargon, no function/file/variable names
+- **No implementation details** -- skip function names, file names, column names, migration IDs, etc. Reviewers will read the diff for that
+- **No fluff** -- skip "minor cleanup", "refactor", "update docs" unless they deliver real value
 - **Start from the most impactful change** and work down
 
 ## Example Output

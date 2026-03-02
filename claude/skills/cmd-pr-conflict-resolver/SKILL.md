@@ -1,3 +1,11 @@
+---
+name: cmd-pr-conflict-resolver
+description: Resolve merge conflicts systematically with context-aware 3-tier classification and escalation protocol
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # Resolve Merge Conflicts <!-- omit in toc -->
 
 Your job is to resolve merge conflicts in the current branch using a structured, context-aware approach. You resolve what you can confidently, explain your reasoning for non-trivial resolutions, and escalate when the correct behavior is ambiguous.
@@ -196,59 +204,3 @@ Flag any of the following:
 - Files that weren't in the conflict set but may be affected by the merge
 
 Closing question: **Are there areas of the codebase this merge could affect that aren't in the conflict markers?**
-
-
-
-
-
-
-
- tests not run — Docker wasn't available. These need to be run before merging.
-
-  Testing Gaps
-
-  > 1. Missing adapter test for bare @handle ...
-
-  Add a test
-
-  > 2. No YouTubeProfile.from_url("@mkbhd") integration test
-
-  > 1. YOUTUBE_API_KEY is a hard startup requirement — startup.py:190 crashes the server if it's missing. Twitter's API key is NOT a startup requirement. This means deploying without
-
-  This is fine. Let's do the same thing for the twitter api key too.
-
-  Hidden Assumptions
-
-  1. Duplicate URL patterns will stay in sync — _YOUTUBE_URL_PATTERN is defined in both social.py and adapters/youtube/parsing.py. We added a TODO but if someone updates one and not the
-  other, validation and parsing will disagree silently.
-  1. www.youtube.com normalization — The adapter normalizes all YouTube URLs to www.youtube.com (e.g., youtube.com/@mkbhd → https://www.youtube.com/@mkbhd). This is different from other
-  platforms (Twitter normalizes to x.com, GitHub to github.com — no www.). Not a bug, just inconsistent.
-
-  Operational Concerns
-
-  7. YouTube API quota — The client has 5-minute caching, but no rate limiting. YouTube Data API v3 has a default quota of 10,000 units/day. Each channels.list or videos.list call costs
-  ~1-3 units. High tip volume to YouTube could exhaust the quota.
-
-  What's Fine (Verified Safe)
-
-  - Circular import workaround is safe — resolver only imports symbols defined before the re-exports
-  - db/profiles.py gets the correct adapter version via re-export
-  - SocialLinkRequest YouTube flow works end-to-end with bare @handle
-  - All 1272 unit tests pass, all linting/typing clean
-
-  ---
-  Biggest risk remaining?
-
-  The hard YOUTUBE_API_KEY startup requirement. If this key is missing or expired in production, the entire API goes down — not just YouTube tips.
-
-  What would a third-party reviewer criticize first?
-
-  The duplicate URL patterns between social.py and adapter modules. Two sources of truth for the same regex is a maintenance footgun.
-
-  What would I improve with one more day?
-
-  1. Add the missing adapter test for bare @handle
-  2. Make YOUTUBE_API_KEY a soft requirement (warn at startup, fail gracefully at resolution time) to match how Twitter's key is handled
-  3. Consolidate URL patterns into a single source (the adapter modules) with re-exports
-
-  Want me to fix item 1 (the missing test) now? It's quick.

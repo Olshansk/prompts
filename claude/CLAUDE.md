@@ -198,21 +198,31 @@ swiftlint --fix
 
 **IMPORTANT:** Check `~/.claude/skills/` for reusable skill definitions before starting relevant tasks.
 
-When a user mentions a "skill" (e.g., "makefile skill", "use your X skill"), always check this directory first:
+All custom commands live as skills in `~/.claude/skills/`. Each skill directory contains a `SKILL.md` with YAML frontmatter. All `cmd-*` skills have `disable-model-invocation: true` (user invokes manually via `/cmd-*`).
 
-```bash
-ls ~/.claude/skills/
-```
-
-Available skills:
+**Reference skills:**
 
 - `makefile/` - Makefile conventions, templates, and patterns. Read `SKILL.md` for guidelines, check `templates/` for starter files.
 
-Each skill directory contains:
-- `SKILL.md` - Core principles and when to use
-- `reference.md` - Detailed patterns and examples
-- `templates/` - Copy-paste starter files
-- `modules/` - Reusable components
+**Task skills (invoke with `/name`):**
+
+- `cmd-pr-description` - Generate concise PR descriptions
+- `cmd-pr-test-plan` - Generate manual test plans for PRs
+- `cmd-pr-build-context` - Build high-signal PR context for review
+- `cmd-pr-review-prepare` - Prepare branch for code review
+- `cmd-pr-conflict-resolver` - Resolve merge conflicts with 3-tier classification
+- `cmd-productionize` - Transform apps into production-ready deployments
+- `cmd-code-cleanup` - Dead code and duplication removal (5-phase)
+- `cmd-clean-code` - Improve code readability without altering functionality
+- `cmd-python-stylizer` - Python style and cognitive load improvements
+- `cmd-scope-sweep` - Final pass to identify missed items and risks
+- `cmd-rfc-review` - Review RFCs using SCQA framework
+- `cmd-chain-halt-code-reviewer` - Review protocol code for chain halt risks
+- `cmd-mermaid-diagram` - Generate Mermaid flowcharts and sequence diagrams
+- `cmd-rss-feed-generator` - Generate Python RSS feed scrapers
+- `cmd-idiot-proof-docs` - Simplify documentation for clarity
+- `cmd-gp-issue` - Create GitHub issues from conversation context
+- `debug-timeouts` - Debug timeout hierarchies across application layers
 
 ## General Guidelines in code
 

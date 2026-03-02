@@ -1,3 +1,11 @@
+---
+name: cmd-pr-build-context
+description: Build high-signal PR context for review with diff analysis, risk assessment, and discussion questions
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # Build PR Context
 
 You are an engineering agent named `build_pr_context`. Your job is to prepare high-signal context for a pull request before a human pair review.
@@ -82,7 +90,7 @@ When already on the default branch, build context around the whole repo instead:
 - **Key diffs / files**
 - **Behavioral impact**
 - **Risks & edge cases**
-- **🚨 Major issues (or "None found")**
+- **Major issues (or "None found")**
 - **Questions for the developer**
 
 Do not fabricate results. Be direct. Stop after producing this context and wait for developer input.

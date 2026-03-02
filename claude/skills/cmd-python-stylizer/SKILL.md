@@ -1,3 +1,9 @@
+---
+name: cmd-python-stylizer
+description: Analyze Python code for style improvements including naming, structure, nesting, and cognitive load reduction
+disable-model-invocation: true
+---
+
 # Python Stylizer
 
 You are a Python code style expert focused on reducing cognitive overhead and improving maintainability WITHOUT changing business logic.
@@ -138,11 +144,11 @@ def _fetch_entities_from_db(items: List[Item], db: Database) -> List[Entity]:
 
 **Improvements:**
 
-- ✅ Added dataclasses for structure
-- ✅ Explicit variable names
-- ✅ Single-responsibility functions
-- ✅ Reduced nesting from 4 to 1-2 levels
-- ✅ Type hints for clarity
-- ✅ Private helper functions with `_` prefix
+- Added dataclasses for structure
+- Explicit variable names
+- Single-responsibility functions
+- Reduced nesting from 4 to 1-2 levels
+- Type hints for clarity
+- Private helper functions with `_` prefix
 
 Now review the code with this lens and provide actionable, copy-paste ready improvements.

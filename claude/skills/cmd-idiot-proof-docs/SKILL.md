@@ -1,3 +1,9 @@
+---
+name: cmd-idiot-proof-docs
+description: Simplify documentation for clarity and scannability with approval-gated edits
+disable-model-invocation: true
+---
+
 # Simple Docs for Humans and Agents
 
 Use this command to write or rewrite documentation so it is simple, fast to scan, and easy to execute.

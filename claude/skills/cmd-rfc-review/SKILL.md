@@ -1,3 +1,9 @@
+---
+name: cmd-rfc-review
+description: Review RFCs for problem clarity, compliance, security, and performance using SCQA framework
+disable-model-invocation: true
+---
+
 # Request for Comments (RFC) Review
 
 You are a very experienced, thoughtful, and kind software engineer who reviews RFC (Requests for Comments)

@@ -1,3 +1,11 @@
+---
+name: debug-timeouts
+description: Systematically analyze and debug timeout hierarchies across application layers to identify conflicts and root causes
+disable-model-invocation: true
+context: fork
+agent: general-purpose
+---
+
 # Debug Timeouts Command
 
 ## Overview
@@ -18,7 +26,7 @@ Systematically analyze and debug timeout configurations across application layer
 
 ### 1. Timeout Discovery
 - **HTTP Client Timeouts**: `Timeout`, `ResponseHeaderTimeout`, `TLSHandshakeTimeout`, `ExpectContinueTimeout`
-- **Transport Timeouts**: `DialTimeout`, `KeepAlive`, `IdleConnTimeout`  
+- **Transport Timeouts**: `DialTimeout`, `KeepAlive`, `IdleConnTimeout`
 - **Context Timeouts**: `WithTimeout`, `WithDeadline` calls
 - **Server Timeouts**: `ReadTimeout`, `WriteTimeout`, `IdleTimeout`
 - **Application Timeouts**: Custom timeout constants and configurations
@@ -55,10 +63,10 @@ REQUEST TIMEOUT CHAIN
 ⚠️  TIMEOUT CONFLICTS DETECTED:
 1. Gateway parallelRequestTimeout (30s) > Server ReadTimeout (60s)
    → Gateway timeout never triggers, server closes connection first
-   
-2. HTTP Client Timeout (80s) > ResponseHeaderTimeout (1s) 
+
+2. HTTP Client Timeout (80s) > ResponseHeaderTimeout (1s)
    → ResponseHeaderTimeout will trigger first, HTTP Client timeout unused
-   
+
 3. Multiple 1s timeouts competing:
    - context.WithTimeout(1s) vs ResponseHeaderTimeout(1s)
    → Both will trigger simultaneously, creating race condition
@@ -88,7 +96,7 @@ INVESTIGATION STEPS:
 earlyCtx, earlyCancel := context.WithTimeout(debugCtx, 1*time.Second)
 transport.ResponseHeaderTimeout = 1*time.Second
 
-// AFTER: Coordinated timeout strategy  
+// AFTER: Coordinated timeout strategy
 earlyCtx, earlyCancel := context.WithTimeout(debugCtx, 500*time.Millisecond)
 transport.ResponseHeaderTimeout = 1*time.Second  // Backup timeout
 ```
@@ -146,7 +154,7 @@ Dial.*Timeout|KeepAlive.*=
 
 📊 DISCOVERED TIMEOUTS (8 found):
 ├── protocol/shannon/context.go:28    defaultShannonSendRelayTimeoutMillisec = 5_000
-├── protocol/shannon/http_client.go:25 responseHeaderTimeout = 1 * time.Second  
+├── protocol/shannon/http_client.go:25 responseHeaderTimeout = 1 * time.Second
 ├── protocol/shannon/http_client.go:98 TLSHandshakeTimeout: 5 * time.Second
 ├── protocol/shannon/http_client.go:87 DialContext Timeout: 5 * time.Second
 ├── gateway/request_context.go:36     parallelRequestTimeout = 30 * time.Second
@@ -165,10 +173,10 @@ Request → ResponseHeaderTimeout(1s) → Shannon(5s) → Parallel(30s) → Serv
 💡 INVESTIGATION COMMANDS:
 1. Add connection pool monitoring:
    transport.CloseIdleConnections() // Add timing around this call
-   
+
 2. Check for connection reuse patterns:
    httptrace.GotConn callback // Log connectionReused field
-   
+
 3. Monitor DNS resolution:
    httptrace.DNSStart/DNSDone // Check for DNS caching issues
 

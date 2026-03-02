@@ -1,3 +1,9 @@
+---
+name: cmd-clean-code
+description: Improve code readability without altering functionality using idiomatic best practices
+disable-model-invocation: true
+---
+
 # Clean Code
 
 Use these rules to improve code readability without altering functionality unless explicitly requested.
@@ -29,16 +35,16 @@ Use these rules to improve code readability without altering functionality unles
 
 - Leave `TODO_???(???)` tags untouched.
 - Preserve callouts like `IMPORTANT`, `DEV_NOTE`, etc.
-- Maintain references to GitHub issues/PRs (e.g. “As of #XX …”).
+- Maintain references to GitHub issues/PRs (e.g. "As of #XX ...").
 - Keep every link and external reference.
 - Retain markers such as `CRITICAL`, `NB`, `DEV_NOTE`, `NOTE`; just clean up the following text.
 
 ### Handling Long Snippets
 
-- For grouped code (≈5 lines) followed by a blank line, add a brief comment atop the block.
+- For grouped code (~5 lines) followed by a blank line, add a brief comment atop the block.
 - Keep existing comment hierarchy; just enhance readability.
 
 ## Nits & Edits
 
-- Don’t create a list with only one item—write it as plain text.
+- Don't create a list with only one item -- write it as plain text.
 - Never remove existing links while editing.

@@ -1,10 +1,16 @@
+---
+name: cmd-gp-issue
+description: Create structured GitHub issues from conversation context using gh CLI
+disable-model-invocation: true
+---
+
 # Create GitHub Issue from Conversation
 
 Create a well-structured GitHub issue using `gh` CLI, populated with context from the current conversation.
 
 ## Instructions
 
-1. **Determine the repo** — confirm you're inside a git repo with a GitHub remote:
+1. **Determine the repo** -- confirm you're inside a git repo with a GitHub remote:
 
    ```bash
    gh repo view --json nameWithOwner -q '.nameWithOwner'
@@ -36,18 +42,18 @@ Open with a short (2-4 bullet) summary answering:
 - **What** needs to happen?
 - **Why** does it matter? (user pain, system constraint, business goal)
 
-This section should stand alone — a reader who stops here should understand the ask.
+This section should stand alone -- a reader who stops here should understand the ask.
 
 ### Section 2: Context & Discussion
 
 This is the bulk of the issue. Capture everything relevant from our conversation:
 
-- **Background** — what led to this discussion
-- **Current behavior** — how things work today (or don't)
-- **Desired behavior** — what success looks like
-- **Constraints & decisions** — trade-offs we discussed, options we rejected and why
-- **Technical details** — relevant code paths, configs, schemas, API shapes, error messages
-- **Related work** — links to PRs, issues, docs, or external references mentioned
+- **Background** -- what led to this discussion
+- **Current behavior** -- how things work today (or don't)
+- **Desired behavior** -- what success looks like
+- **Constraints & decisions** -- trade-offs we discussed, options we rejected and why
+- **Technical details** -- relevant code paths, configs, schemas, API shapes, error messages
+- **Related work** -- links to PRs, issues, docs, or external references mentioned
 
 **Formatting rules for this section:**
 
@@ -57,7 +63,7 @@ This is the bulk of the issue. Capture everything relevant from our conversation
 - Embed images/screenshots if any were shared (use `![alt](url)` syntax)
 - Wrap code snippets, commands, file paths, and config in fenced code blocks with language tags
 - Use `<details><summary>...</summary>...</details>` to collapse verbose content (logs, full configs, large code blocks) so the issue stays scannable
-- Do NOT strip context — preserve the substance of our discussion, but reorganize it logically
+- Do NOT strip context -- preserve the substance of our discussion, but reorganize it logically
 
 ### Section 3: Implementation Plan
 
@@ -67,7 +73,7 @@ End with the plan we've aligned on (even if rough). Frame it for a future agent 
 - Call out key files to create or modify
 - Note any open questions or decisions still TBD (prefix with `[ ]`)
 - If there are dependencies between steps, make the order explicit
-- If we haven't aligned on a plan yet, write `## Implementation Plan\n\n_TBD — no plan agreed on yet._`
+- If we haven't aligned on a plan yet, write `## Implementation Plan\n\n_TBD -- no plan agreed on yet._`
 
 ## Labels & Assignment (optional)
 
@@ -77,7 +83,7 @@ End with the plan we've aligned on (even if rough). Frame it for a future agent 
 ## Style Rules
 
 - **Title**: imperative mood, under 70 chars (e.g., "Add retry logic to webhook delivery")
-- **No fluff**: skip filler phrases like "It would be great if..." — be direct
+- **No fluff**: skip filler phrases like "It would be great if..." -- be direct
 - **Bias to structure**: headers > paragraphs, bullets > prose, tables > lists-of-pairs
 - **Preserve signal**: don't summarize away details that a future implementer would need
-- **Mark uncertainty**: if something was discussed but not decided, say so explicitly with `⚠️ TBD` or an open checkbox `[ ]`
+- **Mark uncertainty**: if something was discussed but not decided, say so explicitly with "TBD" or an open checkbox `[ ]`

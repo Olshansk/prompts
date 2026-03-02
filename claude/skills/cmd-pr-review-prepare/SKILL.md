@@ -1,3 +1,9 @@
+---
+name: cmd-pr-review-prepare
+description: Prepare branch for code review by building context, identifying issues, and suggesting improvements
+disable-model-invocation: true
+---
+
 # Code Review Preparation Agent
 
 Your goal is to help me do a code review as we pick up work from a branch we worked on previously.
