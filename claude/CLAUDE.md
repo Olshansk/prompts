@@ -1,4 +1,4 @@
-# Olshansky's CLAUDE.md <!-- omit in toc -->
+# Olshansky's AGENTS.md <!-- omit in toc -->
 
 - [Writing Code](#writing-code)
 - [Python](#python)
@@ -189,16 +189,20 @@ swiftlint --fix
 
 ## Context Loading Strategy
 
-1. Read README.md and CLAUDE.md
+1. Read README.md and AGENTS.md (or tool-specific instruction file)
 2. List project structure (`git ls-files | head -50`)
 3. Review configuration files (package.json, Cargo.toml, etc.)
 4. Understand development workflow
 
 ## Custom Skills
 
-**IMPORTANT:** Check `~/.claude/skills/` for reusable skill definitions before starting relevant tasks.
+**IMPORTANT:** Check the tool's skills directory for reusable skill definitions before starting relevant tasks.
 
-All custom commands live as skills in `~/.claude/skills/`. Each skill directory contains a `SKILL.md` with YAML frontmatter. All `cmd-*` skills have `disable-model-invocation: true` (user invokes manually via `/cmd-*`).
+Skills directories by tool:
+- Claude: `~/.claude/skills/`
+- Codex: `~/.codex/skills/`
+
+Each skill directory contains a `SKILL.md` with YAML frontmatter. All `cmd-*` skills have `disable-model-invocation: true` (user invokes manually via `/cmd-*`).
 
 **Reference skills:**
 
@@ -256,7 +260,7 @@ Use specific TODO prefixes to categorize action items:
 - **Blocked (optional):** What's blocking this work
 
 **Prompting for TODOs:**
-When I say "don't do X" or "skip X for now" or decline a suggestion, Claude should:
+When I say "don't do X" or "skip X for now" or decline a suggestion, the agent should:
 1. Check if a relevant TODO already exists
 2. If not, ask: "Should I add a TODO for this? What priority/prefix?"
 3. Add the TODO with proper context if confirmed
@@ -280,7 +284,10 @@ Example:
 
 End every response with exactly one of these tags (on its own line):
 
-- `[✅ CLAUDE - DONE - SUCCESS]` - Task completed successfully, all items green
-- `[❌ CLAUDE - DONE - FAILED]` - Task attempted but failed or encountered errors
-- `[⏳ CLAUDE - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval
-- `[🔴 CLAUDE - DONE - PARTIAL]` - Task partially completed; some items succeeded but others are blocked or failed. Use this when at least one item could not be completed (e.g., missing `.env`, infra down, dependency unavailable). Always pair with a prominent blockers summary showing exactly what failed and why.
+- `[✅ AGENT - SUCCESS]` - Task completed successfully, all items green
+- `[✔️ AGENT - DONE]` - Task completed (neutral outcome, neither particularly good nor bad)
+- `[❌ AGENT - FAILURE]` - Task attempted but failed or encountered errors
+- `[🔴 AGENT - PARTIAL]` - Task partially completed; some items succeeded but others are blocked or failed. Always pair with a prominent blockers summary showing exactly what failed and why.
+- `[⏳ AGENT - WAITING]` - Blocked on external process or async operation
+- `[⏳ AGENT - INPUT NEEDED]` - Blocked waiting for user input, clarification, or approval
+- `[🤔 AGENT - UNSURE]` - Uncertain about approach, results, or requirements; needs guidance

@@ -79,3 +79,6 @@ prefix_rule(pattern=["rm", "-f", "skills/session-commit/assets/pointer-template.
 prefix_rule(pattern=["rm", "-f", "CLAUDE.md", "CODEX.md", "GEMINI.md"], decision="allow")
 prefix_rule(pattern=["git", "remote", "set-url", "origin", "https://github.com/Olshansk/agent-skills.git"], decision="allow")
 prefix_rule(pattern=["npx", "skills"], decision="allow")
+prefix_rule(pattern=["uv", "run", "ruff", "check", "breaking_ground_api", "libs/image_analysis/src/breaking_ground_core", "libs/image_analysis/tests/test_fusion_service.py"], decision="allow")
+prefix_rule(pattern=["uv", "run", "ruff", "check", "breaking_ground_api/main.py", "breaking_ground_api/models.py", "breaking_ground_api/settings.py", "libs/image_analysis/src/breaking_ground_core/pipeline.py", "libs/image_analysis/src/breaking_ground_core/fusion/service.py", "libs/image_analysis/src/breaking_ground_core/fusion/__init__.py", "libs/image_analysis/src/breaking_ground_core/vlm/openai_client.py", "libs/image_analysis/src/breaking_ground_core/vlm/__init__.py", "libs/image_analysis/src/breaking_ground_core/__init__.py", "libs/image_analysis/tests/test_fusion_service.py"], decision="allow")
+prefix_rule(pattern=["uv", "run", "pytest", "libs/image_analysis/tests/test_fusion_service.py", "-q"], decision="allow")

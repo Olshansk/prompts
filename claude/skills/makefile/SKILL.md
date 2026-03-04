@@ -1,6 +1,6 @@
 ---
 name: makefile
-description: Create or improve Makefiles with minimal complexity. Templates available: base, python-uv, python-fastapi, nodejs, go, chrome-extension, flutter.
+description: "Create or improve Makefiles with minimal complexity. Templates available: base, python-uv, python-fastapi, nodejs, go, chrome-extension, flutter."
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
