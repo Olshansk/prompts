@@ -208,6 +208,7 @@ Each skill directory contains a `SKILL.md` with YAML frontmatter. All `cmd-*` sk
 
 - `makefile/` - Makefile conventions, templates, and patterns. Read `SKILL.md` for guidelines, check `templates/` for starter files.
 
+<!-- TODO_IMPROVE: Auto-generate this skill list from skills/*/SKILL.md frontmatter -->
 **Task skills (invoke with `/name`):**
 
 - `cmd-pr-description` - Generate concise PR descriptions
@@ -225,7 +226,8 @@ Each skill directory contains a `SKILL.md` with YAML frontmatter. All `cmd-*` sk
 - `cmd-mermaid-diagram` - Generate Mermaid flowcharts and sequence diagrams
 - `cmd-rss-feed-generator` - Generate Python RSS feed scrapers
 - `cmd-idiot-proof-docs` - Simplify documentation for clarity
-- `cmd-gp-issue` - Create GitHub issues from conversation context
+- `cmd-gh-issue` - Create GitHub issues from conversation context
+- `cmd-code-review-sweep` - Review changes for test gaps, simplification, naming, reuse, TODOs
 - `debug-timeouts` - Debug timeout hierarchies across application layers
 
 ## General Guidelines in code
