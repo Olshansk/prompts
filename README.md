@@ -14,17 +14,17 @@ Three repos and one third-party directory work together:
 
 | Location | What it holds | Role |
 |----------|--------------|------|
-| `~/workspace/prompts/` (this repo) | `skills/` — 19 reusable skills | **SoT for skills** |
+| `~/workspace/personal-agent-skills/` (this repo) | `skills/` — 19 reusable skills | **SoT for skills** |
 | `~/workspace/configs/agents/` | `AGENTS.md`, `MEMORIES.md` | **SoT for agent instructions** |
 | `~/.agents/skills/` | Third-party skills (find-skills, vercel-*, etc.) | Managed by `skills.sh` |
-| `~/workspace/prompts/configs/` | Snapshots of tool configs | Read-only reference (not SoT) |
+| `~/workspace/personal-agent-skills/configs/` | Snapshots of tool configs | Read-only reference (not SoT) |
 
 ### Skills — symlink flow
 
 Every agent tool directory symlinks directly to this repo (single hop):
 
 ```
-~/workspace/prompts/skills/cmd-foo/SKILL.md     ← source of truth
+~/workspace/personal-agent-skills/skills/cmd-foo/SKILL.md     ← source of truth
     ↑
     ├── ~/.claude/skills/cmd-foo
     ├── ~/.gemini/antigravity/skills/cmd-foo
