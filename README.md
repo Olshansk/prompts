@@ -1,5 +1,8 @@
 # Agent Skills <!-- omit in toc -->
 
+> [!IMPORTANT]
+> This repo has been consolidated into [agent-skills](https://github.com/Olshansk/agent-skills).
+
 Reusable skills for Claude Code, Gemini, and Codex.
 
 - [Architecture](#architecture)
